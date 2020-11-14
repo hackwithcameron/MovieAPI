@@ -5,8 +5,13 @@
     <div class="container">
     <form method="post">
         {% csrf_token %}
-        <input type="text" name="title">
-        <button type="submit" onclick="location.href{% url 'searchTitle' %}">Search</button>
+        <table>
+            <tr>
+                <th><label for="title"></label>Movie title</th>
+                <td><input type="text" name="title" id="title"></td>
+            </tr>
+        </table>
+        <button type="submit" value="submit">Search</button>
     </form>
     </div>
 {% endblock %}
