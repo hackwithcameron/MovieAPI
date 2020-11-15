@@ -24,6 +24,7 @@
     position: fixed;
     align-items: baseline;
     width: inherit;
+    left: 5%;
 }
 
 #movie_container {
@@ -37,6 +38,20 @@
     margin-top: 50px;
 }
 
-.card-header {
+.card-header, .card-footer {
     width: 100%;
+}
+
+.card-body {
+    display: flex;
+    justify-content: center;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: right;
+}
+
+.like, .dislike {
+    margin-left: 10px;
 }

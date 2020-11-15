@@ -26,6 +26,6 @@ def details(request, film_id):
 
 
 def api_request(request):
-    title = request.POST.get('movie', False)
+    title = request.POST.get('search_movie', False)
     res = search_title(title)
     return res
