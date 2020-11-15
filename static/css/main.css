@@ -1,0 +1,42 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+
+.container{
+    display: flex;
+    justify-content: center;
+}
+
+#input_container {
+    width: 50%;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+}
+
+#input_form {
+    display: flex;
+    position: fixed;
+    align-items: baseline;
+    width: inherit;
+}
+
+#movie_container {
+    width: 50%;
+    margin-left: 30px;
+}
+
+.card {
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.card-header {
+    width: 100%;
+}

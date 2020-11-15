@@ -3,5 +3,5 @@ from django import forms
 
 
 class SearchForm(forms.Form):
-    movie = forms.CharField(max_length=100)
+    search_movie = forms.CharField(max_length=100)
 

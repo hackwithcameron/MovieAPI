@@ -1,26 +1,31 @@
 from django.shortcuts import render
 from .forms import SearchForm
-from .api_service import search_title
+from .api_service import search_title, get_details
 
 
 def index(request):
-    if request.method == 'POST':
-        api_request(request)
     movie = SearchForm(request.POST or None)
-    return render(request, 'Home/home.html')
-
-
-def details(request):
-    title = request.POST.get('title', False)
     context = {
-        'title': title
+        'movie': movie,
+        'results': [],
+    }
+    if request.method == 'POST':
+        search_results = api_request(request)
+        for i in search_results:
+            context['results'].append(i)
+        return render(request, 'Home/home.html', context)
+    return render(request, 'Home/home.html', context)
+
+
+def details(request, film_id):
+    details = get_details(film_id)
+    context = {
+        'details': details,
     }
     return render(request, 'Home/details.html', context)
 
 
 def api_request(request):
-    title = request.POST.get('title', False)
-
-    search_title(title)
-
-    return render(request, 'Home/home.html')
+    title = request.POST.get('movie', False)
+    res = search_title(title)
+    return res
