@@ -10,6 +10,17 @@
     justify-content: center;
 }
 
+.backgroundImage {
+    object-fit: fill;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    z-index: -9999;
+}
+
 #input_container {
     width: 50%;
     height: 100vh;
@@ -23,8 +34,20 @@
     display: flex;
     position: fixed;
     align-items: baseline;
-    width: inherit;
+    width: auto;
     left: 5%;
+    background: rgba(1,1,1,.8);
+    border-radius: 2px;
+    border: 1px black;
+    padding: 15px;
+}
+
+p label {
+    color: white;
+}
+
+.searchButton {
+    margin-left: 5px;
 }
 
 #movie_container {

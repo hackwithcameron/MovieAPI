@@ -3,13 +3,16 @@
 {% block title %}{% endblock %}
 {% block content %}
 <div class="container">
+    <div class="backgroundImage">
+        <img src="{% static './images/movieTitlesVignette.jpg' %}" alt="Background Image">
+    </div>
     <div id="input_container">
         <form method="post" id="input_form">
             {% csrf_token %}
             <table>
                 {{ movie.as_p }}
             </table>
-            <button class="button primary" type="submit" name="search_movies">Search</button>
+            <button class="button primary searchButton" type="submit" name="search_movies">Search</button>
         </form>
     </div>
     <div id="movie_container">

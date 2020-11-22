@@ -1,3 +1,4 @@
+
 $(".like").click(function (e) {
     e.preventDefault();
 
@@ -5,7 +6,6 @@ $(".like").click(function (e) {
     let likes = $(".movie_like_count" + movie_id).text();
     const movie_title = $("#movie_title").text();
     const csrf = document.getElementsByName('csrfmiddlewaretoken')[0].value;
-    console.log(likes)
 
 
     $.ajax({
@@ -36,6 +36,7 @@ $(".dislike").click(function (e) {
     const movie_title = $("#movie_title").text();
     const csrf = document.getElementsByName('csrfmiddlewaretoken')[0].value;
 
+
     $.ajax({
         type: 'POST',
         url: "/ajax/dislike/",
@@ -53,3 +54,6 @@ $(".dislike").click(function (e) {
         }
     });
 })
+
+
+

@@ -54,12 +54,12 @@ def get_ratings(movie_id):
         return False
 
 
-@csrf_exempt
 def post_like(request):
     if request.is_ajax() and request.method == 'POST':
         movie_id = request.POST.get('movie_id')
         movie_title = request.POST.get('movie_title')
         movie_likes = request.POST.get('likes')
+        csrf_token = request.POST.get('csrfmiddlewaretoken')
 
         obj, created = Movie.Movies.update_or_create(
             pk=movie_id, defaults={'title': movie_title, 'thumbsUp': int(movie_likes) + 1})
@@ -69,7 +69,6 @@ def post_like(request):
         return HttpResponse('unsuccessful')
 
 
-@csrf_exempt
 def post_dislike(request):
     if request.is_ajax() and request.method == 'POST':
         movie_id = request.POST.get('movie_id')
