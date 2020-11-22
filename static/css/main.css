@@ -1,0 +1,57 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+
+.container{
+    display: flex;
+    justify-content: center;
+}
+
+#input_container {
+    width: 50%;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+}
+
+#input_form {
+    display: flex;
+    position: fixed;
+    align-items: baseline;
+    width: inherit;
+    left: 5%;
+}
+
+#movie_container {
+    width: 50%;
+    margin-left: 30px;
+}
+
+.card {
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.card-header, .card-footer {
+    width: 100%;
+}
+
+.card-body {
+    display: flex;
+    justify-content: center;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: right;
+}
+
+.like, .dislike {
+    margin-left: 10px;
+}
