@@ -2,7 +2,33 @@
 {% load static %}
 {% block title %}Details{% endblock %}
 {% block content %}
-    <h2>Search Page</h2>
-    {{ title }}
+    <div class="details-background-container">
+        <img class="backgroundImage details-background" src="{{ details.poster }}" alt="Movie Poster">
+    </div>
+    <div class="container-fluid top-details-container">
+        <div class="row">
+            <div class="col-8">
+                <h2>{{ details.title }}</h2>
+                <div class="row">
+                    <div class="col">
+                        <p>cast:</p>
+                        {% for actor in details.cast %}
+                            {{ actor.actor }} played {{ actor.charater }}
+                        {% endfor %}
+                    </div>
+                    <div class="col">
+                        <p>cast:</p>
+                        {% for actor in details.cast %}
+                            {{ actor.actor }} played {{ actor.charater }}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <img src="{{ details.poster }}" alt="Movie Poster" width="250px" height="400px">
+            </div>
+        </div>
+
+    </div>
 
 {% endblock %}

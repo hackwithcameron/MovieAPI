@@ -55,5 +55,9 @@ $(".dislike").click(function (e) {
     });
 })
 
+function test(movie_id){
+    console.log(movie_id);
+}
+
 
 

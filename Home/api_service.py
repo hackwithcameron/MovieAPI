@@ -33,4 +33,4 @@ def get_details(film_id):
     conn.request("GET", f"/film/{film_id}", headers=headers)
 
     res = json.loads((conn.getresponse()).read().decode('utf-8'))
-    print(res)
+    return res

@@ -11,14 +11,12 @@
 }
 
 .backgroundImage {
-    object-fit: fill;
     position: fixed;
-    top: 0;
-    left: 0;
     right: 0;
-    bottom: 0;
     overflow: hidden;
     z-index: -9999;
+    height: 100vh;
+    width: 100vw;
 }
 
 #input_container {
@@ -37,9 +35,10 @@
     width: auto;
     left: 5%;
     background: rgba(1,1,1,.8);
-    border-radius: 2px;
-    border: 1px black;
+    border-radius: 3px;
+    border: 1px solid #eee;
     padding: 15px;
+    padding-bottom: 0;
 }
 
 p label {
@@ -49,6 +48,8 @@ p label {
 .searchButton {
     margin-left: 5px;
 }
+
+/****************** CARDS *********************/
 
 #movie_container {
     width: 50%;
@@ -61,20 +62,73 @@ p label {
     margin-top: 50px;
 }
 
-.card-header, .card-footer {
+.card-header {
     width: 100%;
+    color: #eee;
+    background-color: #0e0e0e;
 }
 
 .card-body {
     display: flex;
     justify-content: center;
+    background-color: rgb(36, 36, 36);
+    width: 100%;
+
 }
 
 .card-footer {
+    width: 100%;
     display: flex;
-    justify-content: right;
+    justify-content: space-between;
+    background-color: #0e0e0e;
+}
+
+.like-container {
+    display: flex;
+}
+
+.details-container {
+    display: flex;
+    align-items: center;
 }
 
 .like, .dislike {
     margin-left: 10px;
 }
+
+/***************** END CARDS ********************/
+
+/****************** DETAILS *********************/
+
+.details-background {
+    filter: blur(50px) saturate(50%);
+    object-fit: cover;
+}
+
+.details-background-container:before, .details-background-container:after {
+    content: '';
+    position: fixed;
+    height: 30px;
+    width: 100%;
+    background-color: black;
+    z-index: 10;
+}
+
+.details-background-container:before {
+    top: 0;
+}
+
+.details-background-container:after {
+    bottom: 0;
+}
+
+
+.top-details-container {
+    margin: 30px 0;
+    background-color: rgba(1,1,1,.2);
+}
+
+
+
+/**************** END DETAILS *******************/
+

@@ -1,6 +1,5 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from django.views.decorators.csrf import csrf_exempt
 
 from .forms import SearchForm
 from .models import Movie
@@ -16,26 +15,29 @@ def index(request):
     }
     if request.method == 'POST':
         if 'search_movies' in request.POST:
-            search_results = api_request(request)
+            search_results = api_request(request)  # Gets info from API for movie search
             for i in search_results:
                 if get_ratings(i['id']):
                     i['rating'] = get_ratings(i['id'])
                 context['results'].append(i)
-            print(context['results'])
             return render(request, 'Home/home.html', context)
 
     return render(request, 'Home/home.html', context)
 
 
-def details(request, film_id):
-    details = get_details(film_id)
+def details(request, movie_id):
+    movie_details = get_details(movie_id)
+    print(movie_details)
     context = {
-        'details': details,
+        'details': movie_details,
     }
     return render(request, 'Home/details.html', context)
 
 
 def api_request(request):
+    """
+    Returns response from API
+    """
     title = request.POST.get('search_movie', False)
     res = search_title(title)
     return res
