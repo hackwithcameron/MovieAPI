@@ -17,7 +17,7 @@ def index(request):
         if 'search_movies' in request.POST:
             search_results = api_request(request)  # Gets info from API for movie search
             for i in search_results:
-                if get_ratings(i['id']):
+                if get_ratings(i['id']):  # Checks to see if search result exists in db
                     i['rating'] = get_ratings(i['id'])
                 context['results'].append(i)
             return render(request, 'Home/home.html', context)
@@ -26,9 +26,11 @@ def index(request):
 
 
 def details(request, movie_id):
+    """
+    Gets Movie details by searching movie id with API
+    """
     api = APIService()
     movie_details = api.get_details(movie_id)
-    print(movie_details)
     context = {
         'details': movie_details,
     }
@@ -46,6 +48,9 @@ def api_request(request):
 
 
 def get_ratings(movie_id):
+    """
+    Returns rating for movie if movie exists in db
+    """
     if Movie.Movies.filter(pk=movie_id).exists():
         movie = Movie.Movies.get(pk=movie_id)
         rating = {
@@ -63,7 +68,6 @@ def post_like(request):
         movie_id = request.POST.get('movie_id')
         movie_title = request.POST.get('movie_title')
         movie_likes = request.POST.get('likes')
-        csrf_token = request.POST.get('csrfmiddlewaretoken')
 
         obj, created = Movie.Movies.update_or_create(
             pk=movie_id, defaults={'title': movie_title, 'thumbsUp': int(movie_likes) + 1})

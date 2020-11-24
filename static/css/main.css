@@ -59,7 +59,7 @@ p label {
 .card {
     justify-content: center;
     align-items: center;
-    margin-top: 50px;
+    margin: 50px auto;
 }
 
 .card-header {
@@ -157,19 +157,23 @@ p label {
     text-align: right;
 }
 
+#cast-character {
+    color: #eee;
+}
+
 .cast-list-before {
     list-style: none;
-    color: #a9a9a9;
+    color: #575757;
 }
 
 .cast-list-after {
     list-style: none;
-    color: #a9a9a9;
+    color: #575757;
     display: none;
 }
 
 .more {
-    color: #a9a9a9;
+    color: #575757;
 }
 
 .more:hover {
@@ -179,7 +183,7 @@ p label {
 }
 
 .less {
-    color: #a9a9a9;
+    color: #575757;
     display: none;
 }
 

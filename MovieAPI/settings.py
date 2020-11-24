@@ -12,11 +12,22 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 from decouple import config
+from django.core.management.utils import get_random_secret_key
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+try:
+    SECRET_KEY = config('SECRET_KEY')
+except Exception as e:
+    start = [
+        f"SECRET_KEY={get_random_secret_key()}\n",
+        "DEBUG=True\n",
+        "API_KEY="
+    ]
+    with open(f"{BASE_DIR}/.env", "a+") as env:
+        env.writelines(start)
+    print("\n.env file created, run 'python manage.py runserver' in the command line\n")
 
-SECRET_KEY = config('SECRET_KEY')
 
 DEBUG = config('DEBUG', default=False, cast=bool)
 

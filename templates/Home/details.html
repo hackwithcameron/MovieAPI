@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}Details{% endblock %}
+{% block title %}{{ details.title }}{% endblock %}
 {% block content %}
     <div class="details-background-container">
         <img class="backgroundImage details-background" src="{{ details.poster }}" alt="Movie Poster">
@@ -27,7 +27,8 @@
                         </ul>
                         <ul class="cast-list-after">
                             {% for actor in details.cast %}
-                                <li>{{ actor.actor }}<br></li>
+                                <li id="cast-character">- {{ actor.character }}</li>
+                                <li>{{ actor.actor }}</li>
                             {% endfor %}
                         </ul>
                         <a class="more" onclick="more()">More</a>
@@ -35,7 +36,7 @@
                     </div>
                     <div class="col-8">
                         <div class="info-box">
-                            <p>{{ details.technical_specs.0.1 }}</p>
+                            <p>{{ details.length }}</p>
                             <p>{{ details.year }}</p>
                         </div>
                         {{ details.plot }}
