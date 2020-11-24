@@ -1,10 +1,9 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from django.views.decorators.csrf import csrf_exempt
 
 from .forms import SearchForm
 from .models import Movie
-from .api_service import search_title, get_details
+from .api_service import APIService
 
 
 def index(request):
@@ -16,28 +15,33 @@ def index(request):
     }
     if request.method == 'POST':
         if 'search_movies' in request.POST:
-            search_results = api_request(request)
+            search_results = api_request(request)  # Gets info from API for movie search
             for i in search_results:
                 if get_ratings(i['id']):
                     i['rating'] = get_ratings(i['id'])
                 context['results'].append(i)
-            print(context['results'])
             return render(request, 'Home/home.html', context)
 
     return render(request, 'Home/home.html', context)
 
 
-def details(request, film_id):
-    details = get_details(film_id)
+def details(request, movie_id):
+    api = APIService()
+    movie_details = api.get_details(movie_id)
+    print(movie_details)
     context = {
-        'details': details,
+        'details': movie_details,
     }
     return render(request, 'Home/details.html', context)
 
 
 def api_request(request):
+    """
+    Returns response from API
+    """
+    api = APIService()
     title = request.POST.get('search_movie', False)
-    res = search_title(title)
+    res = api.search_title(title)
     return res
 
 
@@ -54,12 +58,12 @@ def get_ratings(movie_id):
         return False
 
 
-@csrf_exempt
 def post_like(request):
     if request.is_ajax() and request.method == 'POST':
         movie_id = request.POST.get('movie_id')
         movie_title = request.POST.get('movie_title')
         movie_likes = request.POST.get('likes')
+        csrf_token = request.POST.get('csrfmiddlewaretoken')
 
         obj, created = Movie.Movies.update_or_create(
             pk=movie_id, defaults={'title': movie_title, 'thumbsUp': int(movie_likes) + 1})
@@ -69,7 +73,6 @@ def post_like(request):
         return HttpResponse('unsuccessful')
 
 
-@csrf_exempt
 def post_dislike(request):
     if request.is_ajax() and request.method == 'POST':
         movie_id = request.POST.get('movie_id')
