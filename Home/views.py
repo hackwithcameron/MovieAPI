@@ -3,7 +3,7 @@ from django.shortcuts import render
 
 from .forms import SearchForm
 from .models import Movie
-from .api_service import search_title, get_details
+from .api_service import APIService
 
 
 def index(request):
@@ -26,7 +26,8 @@ def index(request):
 
 
 def details(request, movie_id):
-    movie_details = get_details(movie_id)
+    api = APIService()
+    movie_details = api.get_details(movie_id)
     print(movie_details)
     context = {
         'details': movie_details,
@@ -38,8 +39,9 @@ def api_request(request):
     """
     Returns response from API
     """
+    api = APIService()
     title = request.POST.get('search_movie', False)
-    res = search_title(title)
+    res = api.search_title(title)
     return res
 
 

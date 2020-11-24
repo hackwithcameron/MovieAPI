@@ -55,9 +55,25 @@ $(".dislike").click(function (e) {
     });
 })
 
-function test(movie_id){
-    console.log(movie_id);
+function back(){
+    window.history.back();
 }
+
+function more(){
+    $(".cast-list-before").toggle("slow")
+    $(".cast-list-after").toggle("slow")
+    $(".more").toggle()
+    $(".less").toggle()
+}
+
+function less(){
+    $(".cast-list-before").toggle("slow")
+    $(".cast-list-after").toggle("slow")
+    $(".more").toggle()
+    $(".less").toggle()
+}
+
+
 
 
 

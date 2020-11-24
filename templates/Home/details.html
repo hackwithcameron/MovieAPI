@@ -5,27 +5,51 @@
     <div class="details-background-container">
         <img class="backgroundImage details-background" src="{{ details.poster }}" alt="Movie Poster">
     </div>
+    <a class="back-button" onclick="back()">
+        <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-arrow-left-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+            <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
+        </svg>
+    </a>
     <div class="container-fluid top-details-container">
         <div class="row">
             <div class="col-8">
-                <h2>{{ details.title }}</h2>
+                <div class="title-box">
+                    <h1>{{ details.title }}</h1>
+                </div>
                 <div class="row">
-                    <div class="col">
-                        <p>cast:</p>
-                        {% for actor in details.cast %}
-                            {{ actor.actor }} played {{ actor.charater }}
-                        {% endfor %}
+                    <div class="col-4 cast-box">
+                        <h4>Cast</h4>
+                        <ul class="cast-list-before">
+                            {% for actor in details.cast|slice:"5" %}
+                                <li>{{ actor.actor }}<br></li>
+                            {% endfor %}
+                        </ul>
+                        <ul class="cast-list-after">
+                            {% for actor in details.cast %}
+                                <li>{{ actor.actor }}<br></li>
+                            {% endfor %}
+                        </ul>
+                        <a class="more" onclick="more()">More</a>
+                        <a class="less" onclick="less()">Less</a>
                     </div>
-                    <div class="col">
-                        <p>cast:</p>
-                        {% for actor in details.cast %}
-                            {{ actor.actor }} played {{ actor.charater }}
-                        {% endfor %}
+                    <div class="col-8">
+                        <div class="info-box">
+                            <p>{{ details.technical_specs.0.1 }}</p>
+                            <p>{{ details.year }}</p>
+                        </div>
+                        {{ details.plot }}
                     </div>
                 </div>
             </div>
-            <div class="col-4">
-                <img src="{{ details.poster }}" alt="Movie Poster" width="250px" height="400px">
+            <div class="col-4 poster-container">
+                <img class="movie-poster" src="{{ details.poster }}" alt="Movie Poster" width="250px" height="400px">
+                <a class="btn btn-secondary trailer-button" href="{{ details.trailer.link }}" target="_blank">
+                    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-file-play-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM6 5.883v4.234a.5.5 0 0 0 .757.429l3.528-2.117a.5.5 0 0 0 0-.858L6.757 5.454a.5.5 0 0 0-.757.43z"/>
+                    </svg>
+                    Watch Trailer
+                </a>
             </div>
         </div>
 
