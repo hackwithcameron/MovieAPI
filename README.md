@@ -24,10 +24,10 @@ Create a folder and virtual environment to clone the project to (If you are new,
 Clone project to folder created in step 1. [How to clone a github repository](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository)
 
 #### Step 3:
-Once the project files have been clone to your machine locally navigate to the folder holding the files using the command line. Make sure you are inside of the virtual environment. 
+Once the project files have been clone to your machine locally, navigate to the folder holding the files using the command line. Make sure you are inside of the virtual environment. 
 
 #### Step 4:
-While inside of the virtual environment **cd** to the directory MovieAPI. In the MovieAPI directory there should be a file called requirements.txt. This file contains the packages as well as what version is installed. To install all packages required run the following command.
+While inside of the virtual environment **cd** to the directory MovieAPI. In the MovieAPI directory there should be a file called requirements.txt. This file contains the packages reqiured to run the project as well as what version is needed. To install all packages required run the following command.
 ```
 pip install -r requirements.txt
 ```
