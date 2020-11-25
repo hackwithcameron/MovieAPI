@@ -16,6 +16,7 @@ from django.core.management.utils import get_random_secret_key
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Checks for secret key in .env file. If it is not found one will be created.
 try:
     SECRET_KEY = config('SECRET_KEY')
 except Exception as e:
