@@ -37,4 +37,17 @@ Once step 4 is complete you must set up the database. This is done by running th
 ```
 python manage.py makemigrations
 ```
+**Note**: If this is the first time running this command you may get an error and the command will need to be run one more time.
 
+##### Step 6:
+The next command will set up out table in the databse for us.
+```
+python manage.py migrate
+```
+
+##### Step 7:
+Start the server with
+```
+python manage.py runserver
+```
+and visit [http://127.0.0.1:8000](http://127.0.0.1:8000) to view the application.
