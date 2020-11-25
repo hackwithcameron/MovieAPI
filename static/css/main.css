@@ -1,4 +1,4 @@
-* {
+*, .base-container {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
@@ -163,33 +163,33 @@ p label {
 
 .cast-list-before {
     list-style: none;
-    color: #575757;
+    color: #eee;
 }
 
 .cast-list-after {
     list-style: none;
-    color: #575757;
+    color: #eee;
     display: none;
 }
 
 .more {
-    color: #575757;
+    color: #eee;
 }
 
 .more:hover {
     text-decoration: none;
-    color: #eee;
+    color: #a2a2a2;
     cursor: pointer;
 }
 
 .less {
-    color: #575757;
+    color: #eee;
     display: none;
 }
 
 .less:hover {
     text-decoration: none;
-    color: #eee;
+    color: #a2a2a2;
     cursor: pointer;
 }
 
@@ -205,3 +205,43 @@ p label {
 
 /**************** END DETAILS PAGE *******************/
 
+
+/**************** PAGE SIZING *******************/
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 992px) {
+    .base-container {
+        display: flex;
+    }
+
+    .container {
+        display: inline-block;
+    }
+
+    .backgroundImage {
+        width: auto;
+    }
+
+    #movie_container {
+        width: auto;
+        margin: 0 auto;
+    }
+
+    #input_container {
+        height: auto;
+        width: auto;
+        margin-top: 40px;
+        justify-content: center;
+        margin-right: 0;
+    }
+
+    #input_form {
+        position: relative;
+        left: 0;
+    }
+
+    .details-poster-info {
+        display: flex;
+        justify-content: center;
+    }
+}
