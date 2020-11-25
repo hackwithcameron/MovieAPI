@@ -46,8 +46,17 @@ python manage.py migrate
 ```
 
 ##### Step 7:
+In the MovieAPI directory locate the file **.env**<br>
+<br>
+![locate .env file](https://github.com/hackwithcameron/MovieAPI/blob/master/static/README-Images/projectLayoutEnv.png)<br>
+<br>
+with this file open replace **Insert-API-Key-Here** with your API key.<br>
+<br>
+![.env](https://github.com/hackwithcameron/MovieAPI/blob/master/static/README-Images/APIKeyReplace.png)
+
+##### Step 8:
 Start the server with
 ```
 python manage.py runserver
 ```
-and visit [http://127.0.0.1:8000](http://127.0.0.1:8000) to view the application.
+and visit [http://127.0.0.1:8000](http://127.0.0.1:8000) in your browser to view the application.
