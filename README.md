@@ -10,44 +10,53 @@ How to Clone and Run
 
 ### How to Clone and Run
 
-##### Prerequisites:
+#### Prerequisites:
 1. Basic understanding of the Django Framework or MVC (not extremely important)
 2. Basic understanding of BASH CLI
 3. Basic understanding of Python 3 and virutal environments
     - If you are new, have never used, or just want to learn more about virtual enviroments you can [here](https://realpython.com/effective-python-environment/)
 4. API Key which you can get free [here](https://rapidapi.com/hmerritt/api/imdb-internet-movie-database-unofficial/)
 
-##### Step 1:
+#### Step 1:
 Create a folder and virtual environment to clone the project to (If you are new, have never used, or just want to learn more about virtual enviroments you can [here](https://realpython.com/effective-python-environment/)). It is best pratice when using python to always create a virtual environment to work in. This allows you to install packages for the project you are working on, without affecting other projects.
 
-##### Step 2:
+#### Step 2:
 Clone project to folder created in step 1. [How to clone a github repository](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository)
 
-##### Step 3:
-Once the project files have been clone to your machine locally navigate to the folder holding the files using the command line. Make sure you are inside of the virtual environment. 
+#### Step 3:
+Once the project files have been clone to your machine locally, navigate to the folder holding the files using the command line. Make sure you are inside of the virtual environment. 
 
-##### Step 4:
-While inside of the virtual environment **cd** to the directory MovieAPI. In the MovieAPI directory there should be a file called requirements.txt. This file contains the packages as well as what version is installed. To install all packages required run the following command.
+#### Step 4:
+While inside of the virtual environment **cd** to the directory MovieAPI. In the MovieAPI directory there should be a file called requirements.txt. This file contains the packages reqiured to run the project as well as what version is needed. To install all packages required run the following command.
 ```
 pip install -r requirements.txt
 ```
 
-##### Step 5:
+#### Step 5:
 Once step 4 is complete you must set up the database. This is done by running the following command.
 ```
 python manage.py makemigrations
 ```
-**Note**: If this is the first time running this command you may get an error and the command will need to be run one more time.
+**Note: If this is the first time running this command you may get an error and the command will need to be run one more time.**
 
-##### Step 6:
+#### Step 6:
 The next command will set up out table in the databse for us.
 ```
 python manage.py migrate
 ```
 
-##### Step 7:
+#### Step 7:
+In the MovieAPI directory locate the file **.env**<br>
+<br>
+![locate .env file](https://github.com/hackwithcameron/MovieAPI/blob/master/static/README-Images/projectLayoutEnv.png)<br>
+<br>
+with this file open replace **Insert-API-Key-Here** with your API key.<br>
+<br>
+![.env](https://github.com/hackwithcameron/MovieAPI/blob/master/static/README-Images/APIKeyReplace.png)
+
+#### Step 8:
 Start the server with
 ```
 python manage.py runserver
 ```
-and visit [http://127.0.0.1:8000](http://127.0.0.1:8000) to view the application.
+and visit [http://127.0.0.1:8000](http://127.0.0.1:8000) in your browser to view the application.
