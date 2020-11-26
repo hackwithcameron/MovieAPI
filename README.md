@@ -4,7 +4,29 @@ Welcome to the Movie Finder app! This application allows users to search for the
 <hr>
 
 ### Sections
-How to Clone and Run
+[Demo](#Demo)\
+[Overview](#Overview)\
+[How to Clone and Run](#How-to-Clone-and-Run)
+
+<hr>
+
+### Demo
+![Demo Gif](https://github.com/hackwithcameron/MovieAPI/blob/master/static/README-Images/Demo.gif)
+
+<hr>
+
+### Overview
+This project uses the following technologies:
+- Mac OS
+- Python3
+- Django Framework
+- HTML/CSS
+- JavaScript
+- AJAX
+- SQLite
+- Pycharm
+- Git
+- Conda(virtual environment)
 
 <hr>
 
@@ -48,7 +70,8 @@ python manage.py migrate
 #### Step 7:
 In the MovieAPI directory locate the file **.env**<br>
 <br>
-![locate .env file](https://github.com/hackwithcameron/MovieAPI/blob/master/static/README-Images/projectLayoutEnv.png)<br>
+![locate .env file](https://github.com/hackwithcameron/MovieAPI/blob/master/static/README-Images/projectLayoutEnv.png)
+<br>
 <br>
 with this file open replace **Insert-API-Key-Here** with your API key.<br>
 <br>
