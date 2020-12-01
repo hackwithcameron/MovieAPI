@@ -23,6 +23,7 @@ This project uses the following technologies:
 - HTML/CSS
 - JavaScript
 - AJAX
+- jQuery
 - SQLite
 - Pycharm
 - Git
@@ -55,7 +56,7 @@ pip install -r requirements.txt
 ```
 
 #### Step 5:
-**Note: If this is the first time running this command you may get an error and the command will need to be run one more time.**
+**Note: If this is the first time running this command you may get an error and the command will need to be run one more time.** <br>
 Once step 4 is complete you must set up the database. This is done by running the following command.
 ```
 python manage.py makemigrations
@@ -69,7 +70,7 @@ python manage.py migrate
 ```
 
 #### Step 7:
-In the MovieAPI directory locate the file **.env**<br>
+In the MovieAPI directory locate the file **.env**. This file should be created for you in Step 5.<br>
 <br>
 ![locate .env file](https://github.com/hackwithcameron/MovieAPI/blob/master/static/README-Images/projectLayoutEnv.png)
 <br>
