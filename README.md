@@ -55,11 +55,12 @@ pip install -r requirements.txt
 ```
 
 #### Step 5:
+**Note: If this is the first time running this command you may get an error and the command will need to be run one more time.**
 Once step 4 is complete you must set up the database. This is done by running the following command.
 ```
 python manage.py makemigrations
 ```
-**Note: If this is the first time running this command you may get an error and the command will need to be run one more time.**
+
 
 #### Step 6:
 The next command will set up out table in the databse for us.
